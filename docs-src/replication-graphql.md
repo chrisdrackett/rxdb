@@ -352,7 +352,9 @@ An `Observable` that emits `true` when the replication is canceled, `false` if n
 
 An `Observable` that emits `true` when the replication is doing something, `false` when not.
 
+## Important Notes
 
+RxDB stores the status of replication as a local document on your collection. Because of this if you subscribe to events on your collection its possible that you will get update events related to replication. These start with the string `rxdbreplicationgraphql` which can be used to ignore these if needed.
 
 
 **NOTICE:** To play around, check out the full example of the RxDB [GraphQL replication with server and client](https://github.com/pubkey/rxdb/tree/master/examples/graphql)
